@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TeckCare – Croquettes pour chiots teckels</title>
+<style>
+:root{--bg:#fbf6ee;--card:#fff;--ink:#2a1d14;--mute:#7a6a5c;--brand:#c2410c;--brand2:#7c2d12;--soft:#fde8d4;--line:#ead9c4;--dog:#9a5b2e;--dog2:#6b3a1a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c130d;--card:#2a1d14;--ink:#f6e9da;--mute:#c4ad96;--brand:#fb923c;--brand2:#fdba74;--soft:#3b2616;--line:#4a3322}}
+:root[data-theme="dark"]{--bg:#1c130d;--card:#2a1d14;--ink:#f6e9da;--mute:#c4ad96;--brand:#fb923c;--brand2:#fdba74;--soft:#3b2616;--line:#4a3322}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:20px;color:var(--brand);letter-spacing:-.5px}
+nav a{color:var(--ink);text-decoration:none;margin-left:18px;font-size:14px}
+.cartbtn{background:var(--brand);color:#fff;border:0;border-radius:99px;padding:8px 16px;font-weight:600;cursor:pointer;margin-left:18px}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:center;padding:40px 0}
+.tag{display:inline-block;background:var(--soft);color:var(--brand2);border-radius:99px;padding:4px 12px;font-size:13px;font-weight:600}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.08;margin:14px 0;letter-spacing:-1px}
+h1 em{color:var(--brand);font-style:normal}
+.lead{color:var(--mute);font-size:18px;max-width:480px}
+.btn{display:inline-block;background:var(--brand);color:#fff;border:0;border-radius:12px;padding:13px 22px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;margin:16px 10px 0 0}
+.btn.alt{background:transparent;color:var(--brand);border:2px solid var(--brand)}
+.dogbox{background:radial-gradient(circle at 50% 55%,var(--soft) 0 62%,transparent 63%);padding:10px}
+.dogbox svg{width:100%;height:auto;display:block}
+.badges{display:flex;flex-wrap:wrap;gap:10px;padding:0 0 30px}
+.badges span{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:14px}
+section{padding:36px 0}
+h2{font-size:30px;margin:0 0 6px;letter-spacing:-.5px}
+.sub{color:var(--mute);margin:0 0 22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+label{display:block;font-weight:600;margin:14px 0 4px}
+input[type=range]{width:100%;accent-color:var(--brand)}
+.val{color:var(--brand);font-weight:800}
+.res{background:var(--soft);border-radius:14px;padding:16px;margin-top:16px}
+.res b{font-size:22px;color:var(--brand2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 16px;cursor:pointer;font-weight:600}
+.tabs button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.prod{display:flex;flex-direction:column;gap:6px}
+.prod .price{font-size:30px;font-weight:800}
+.prod small{color:var(--mute)}
+.bag{height:120px;border-radius:14px;background:linear-gradient(160deg,var(--brand),var(--brand2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;position:relative}
+.bag i{position:absolute;top:8px;right:10px;font-size:12px;font-style:normal;background:#fff3;border-radius:99px;padding:2px 10px}
+.qty{display:flex;align-items:center;gap:10px;margin-top:8px}
+.qty button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;cursor:pointer}
+.cart{position:fixed;right:0;top:0;bottom:0;width:min(380px,100%);background:var(--card);border-left:1px solid var(--line);padding:calc(20px + env(safe-area-inset-top,0px)) 20px 20px;transform:translateX(105%);transition:.25s;z-index:10;overflow:auto}
+.cart.open{transform:none;box-shadow:-10px 0 40px #0004}
+.row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:15px}
+.tot{font-size:22px;font-weight:800}
+.note{font-size:13px;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--mute);font-size:13px}
+@media(max-width:760px){.hero,.grid2{grid-template-columns:1fr}nav a{display:none}.hero{padding-top:20px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="logo">🐾 TeckCare</div><nav><a href="#calc">Calculateur</a><a href="#why">Santé</a><a href="#shop">Boutique</a><button class="cartbtn" onclick="toggleCart()">Panier (<span id="cnt">0</span>)</button></nav></div></header>
+
+<main class="wrap">
+<div class="hero">
+<div>
+<span class="tag">Croquettes pour chiots teckels · jusqu'à 1 an</span>
+<h1>Hack your <em>teckel's</em> growth</h1>
+<p class="lead">Que l'espérance de vie de votre teckel soit aussi longue que sa taille. Une recette pensée pour le dos, la digestion et la croissance des petits chiots.</p>
+<a class="btn" href="#shop">Commander dès 17 €</a><a class="btn alt" href="#calc">Calculer sa ration</a>
+</div>
+<div class="dogbox">
+<svg viewBox="0 0 600 340" role="img" aria-label="Chiot teckel">
+<ellipse cx="320" cy="300" rx="230" ry="14" fill="#0002"/>
+<path d="M470 170 Q540 150 548 92" stroke="var(--dog)" stroke-width="22" fill="none" stroke-linecap="round"/>
+<rect x="395" y="215" width="30" height="80" rx="14" fill="var(--dog2)"/>
+<rect x="450" y="215" width="30" height="80" rx="14" fill="var(--dog)"/>
+<rect x="150" y="130" width="340" height="105" rx="52" fill="var(--dog)"/>
+<rect x="180" y="215" width="30" height="80" rx="14" fill="var(--dog2)"/>
+<rect x="235" y="215" width="30" height="80" rx="14" fill="var(--dog)"/>
+<ellipse cx="195" cy="296" rx="22" ry="9" fill="var(--dog2)"/><ellipse cx="250" cy="296" rx="22" ry="9" fill="var(--dog)"/><ellipse cx="410" cy="296" rx="22" ry="9" fill="var(--dog2)"/><ellipse cx="465" cy="296" rx="22" ry="9" fill="var(--dog)"/>
+<ellipse cx="300" cy="215" rx="130" ry="20" fill="#f3d3a8" opacity=".55"/>
+<rect x="150" y="105" width="70" height="95" rx="30" fill="var(--dog)"/>
+<ellipse cx="135" cy="120" rx="58" ry="48" fill="var(--dog)"/>
+<ellipse cx="78" cy="143" rx="46" ry="27" fill="var(--dog)"/>
+<circle cx="36" cy="134" r="11" fill="#1a0f08"/>
+<path d="M60 160 Q85 172 110 158" stroke="#1a0f08" stroke-width="3" fill="none" stroke-linecap="round"/>
+<circle cx="112" cy="108" r="8" fill="#1a0f08"/><circle cx="114" cy="105" r="2.6" fill="#fff"/>
+<path d="M132 90 Q185 100 172 175 Q140 170 128 120Z" fill="var(--dog2)"/>
+<path d="M142 172 Q165 190 190 172 L190 190 Q165 210 142 192Z" fill="#dc2626"/>
+<circle cx="168" cy="205" r="10" fill="#facc15"/><text x="168" y="209" font-size="11" text-anchor="middle" font-weight="700" fill="#7c2d12">T</text>
+</svg>
+</div>
+</div>
+<div class="badges"><span>🦴 Protéines adaptées</span><span>🩸 Enrichi en fer</span><span>🌾 Fibres</span><span>🦠 Probiotiques</span><span>🇫🇷 Livraison à domicile</span></div>
+
+<section id="calc">
+<h2>Quelle ration pour votre chiot ?</h2>
+<p class="sub">Réglez l'âge et le poids : on vous indique la ration et le sac adapté.</p>
+<div class="grid2">
+<div class="card">
+<label>Âge : <span class="val" id="vA">4</span> mois</label><input type="range" id="age" min="2" max="12" value="4">
+<label>Poids : <span class="val" id="vW">3,0</span> kg</label><input type="range" id="wt" min="1" max="9" step="0.5" value="3">
+<p class="note">Estimation indicative. En cas de doute, demandez conseil à votre vétérinaire.</p>
+</div>
+<div class="card">
+<div class="res"><div>Ration quotidienne</div><b id="rat">105 g</b> <span class="note">· répartie en <span id="meals">3</span> repas</span></div>
+<p id="dur"></p>
+<button class="btn" style="margin-top:4px" onclick="addRec()">Ajouter le sac conseillé</button>
+</div>
+</div>
+</section>
+
+<section id="why">
+<h2>Pensé pour la santé du teckel</h2>
+<p class="sub">Notre boussole : la santé de votre chien, à chaque étape de sa croissance.</p>
+<div class="tabs" id="tabs"></div>
+<div class="card" id="tabc"></div>
+</section>
+
+<section id="shop">
+<h2>Nos sacs</h2>
+<p class="sub">Premium accessible : une qualité haut de gamme à prix raisonnable.</p>
+<div class="grid2">
+<div class="card prod"><div class="bag">TeckCare 2 kg<i>Découverte</i></div><div class="price">17 €</div><small>8,50 €/kg · idéal pour essayer</small><div class="qty"><button onclick="chg('s2',-1)">−</button><b id="q-s2">0</b><button onclick="chg('s2',1)">+</button></div></div>
+<div class="card prod"><div class="bag">TeckCare 5 kg<i>Le plus choisi</i></div><div class="price">35 €</div><small>7,00 €/kg · économisez 18 % au kilo</small><div class="qty"><button onclick="chg('s5',-1)">−</button><b id="q-s5">0</b><button onclick="chg('s5',1)">+</button></div></div>
+</div>
+</section>
+</main>
+<footer><div class="wrap">© 2026 TeckCare · Site de démonstration : aucun paiement réel n'est effectué.</div></footer>
+
+<aside class="cart" id="cart">
+<div class="row" style="border:0"><h3 style="margin:0">Votre panier</h3><button class="qty" style="all:unset;cursor:pointer;font-size:22px" onclick="toggleCart()">✕</button></div>
+<div id="lines"></div>
+<label for="freq">Fréquence de livraison</label>
+<select id="freq"><option>Une seule fois</option><option selected>Tous les 2 mois (abonnement)</option></select>
+<p class="row"><span>Total</span><span class="tot" id="tot">0 €</span></p>
+<button class="btn" style="width:100%;margin:6px 0" onclick="pay()">Commander</button>
+<p class="note" id="msg"></p>
+</aside>
+
+<script>
+const P={s2:{n:"Sac 2 kg",p:17,kg:2},s5:{n:"Sac 5 kg",p:35,kg:5}};
+const C={s2:0,s5:0};
+const $=id=>document.getElementById(id);
+let rec="s5";
+function calc(){
+ const a=+$("age").value,w=+$("wt").value;
+ $("vA").textContent=a;$("vW").textContent=w.toFixed(1).replace(".",",");
+ const f=a<=4?.035:a<=8?.03:.025;
+ const g=Math.round(w*1000*f/5)*5;
+ $("rat").textContent=g+" g";
+ $("meals").textContent=a<=4?4:a<=6?3:2;
+ const d2=Math.round(2000/g),d5=Math.round(5000/g);
+ rec=d5<=75?"s5":"s2";
+ $("dur").innerHTML="Un sac de 2 kg dure environ <b>"+d2+" jours</b>, un sac de 5 kg environ <b>"+d5+" jours</b>.<br>Conseillé : <b>"+P[rec].n+"</b> ("+(d5<=75?"à renouveler environ tous les 2 mois":"idéal pour démarrer")+").";
+}
+["age","wt"].forEach(i=>$(i).addEventListener("input",calc));
+function addRec(){chg(rec,1);toggleCart(true)}
+function chg(k,d){C[k]=Math.max(0,C[k]+d);draw()}
+function draw(){
+ let t=0,n=0,h="";
+ for(const k in C){$("q-"+k).textContent=C[k];n+=C[k];t+=C[k]*P[k].p;
+  if(C[k])h+='<div class="row"><span>'+P[k].n+' × '+C[k]+'</span><b>'+C[k]*P[k].p+' €</b></div>'}
+ $("lines").innerHTML=h||'<p class="note">Votre panier est vide.</p>';
+ $("tot").textContent=t+" €";$("cnt").textContent=n;
+}
+function toggleCart(o){$("cart").classList.toggle("open",o===true?true:undefined)}
+function pay(){
+ const n=C.s2+C.s5;
+ $("msg").textContent=n?"Merci ! Commande de démonstration enregistrée ("+$("freq").value.toLowerCase()+"). Aucun paiement effectué.":"Ajoutez d'abord un sac.";
+}
+const T={
+ "Dos":["🦴","Le teckel a un dos long et fragile. Un poids de croissance maîtrisé et des apports en protéines équilibrés aident à soutenir le squelette et à éviter le surpoids."],
+ "Digestion":["🦠","Probiotiques et fibres sélectionnés pour accompagner un système digestif sensible de chiot, surtout lors du passage à de nouvelles croquettes."],
+ "Énergie":["🩸","Du fer et des protéines de qualité pour soutenir la croissance, l'énergie et le développement musculaire de votre petit chasseur."]
+};
+const tb=$("tabs");
+Object.keys(T).forEach((k,i)=>{const b=document.createElement("button");b.textContent=k;b.onclick=()=>{[...tb.children].forEach(x=>x.classList.remove("on"));b.classList.add("on");$("tabc").innerHTML='<div style="font-size:40px">'+T[k][0]+'</div><h3 style="margin:6px 0">'+k+'</h3><p style="margin:0">'+T[k][1]+'</p>'};tb.appendChild(b);if(!i)b.click()});
+calc();draw();
+</script>
+</body>
+</html>
